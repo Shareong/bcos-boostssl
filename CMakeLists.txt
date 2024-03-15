@@ -83,6 +83,15 @@ install(
     INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 )
 
+# install bcos-utilities
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib/ DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/deps/include/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
+
+# install deps of bcos-utilities
+install(DIRECTORY ${VCPKG_LIB_PATH}/ DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install(DIRECTORY ${VCPKG_INCLUDE_PATH}/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
+
+
 # TODO: remove ut temp for remove bcos-framework deps
 # ut
 if(TESTS)
